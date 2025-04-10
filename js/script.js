@@ -57,22 +57,45 @@ function makeDraggable(windowEl, headerEl) {
       const rect = windowEl.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
       offsetY = e.clientY - rect.top;
-      document.body.style.userSelect = 'none'; // prevent text selection
+      document.body.style.cursor = 'default';
+      document.body.style.userSelect = 'none';
     });
   
     document.addEventListener('mousemove', (e) => {
       if (isDragging) {
-        windowEl.style.left = `${e.clientX - offsetX}px`;
-        windowEl.style.top = `${e.clientY - offsetY}px`;
+        const minTop = document.querySelector('.menu-bar')?.offsetHeight || 24;
+        const maxLeft = window.innerWidth - windowEl.offsetWidth;
+        const maxTop = window.innerHeight - windowEl.offsetHeight;
+
+        let newLeft = e.clientX - offsetX;
+        let newTop = e.clientY - offsetY;
+
+        // Contain window within screen bounds
+        if (newTop < minTop) newTop = minTop;
+        if (newLeft < 0) newLeft = 0;
+        if (newLeft > maxLeft) newLeft = maxLeft;
+        if (newTop > maxTop) newTop = maxTop;
+
+        windowEl.style.left = `${newLeft}px`;
+        windowEl.style.top = `${newTop}px`;
         windowEl.style.transform = 'none'; // disable original center transform while dragging
       }
     });
   
     document.addEventListener('mouseup', () => {
       isDragging = false;
+      document.body.style.cursor = '';
       document.body.style.userSelect = '';
     });
   }
+
+///////* About window functionality *//////
+const aboutWindow = document.getElementById('about-window')
+const aboutHeader = document.getElementById('about-header')
+makeDraggable(aboutWindow, aboutHeader);
+aboutWindow.addEventListener('click', (e) => {
+    bringToFront(aboutWindow);
+});
 
 
 ///////* TextEdit window functionality (projects) *//////
@@ -92,6 +115,10 @@ textEditIcon.addEventListener('click', () => {
     randomizePosition(textEditWindow);
 
     textEditWindow.classList.remove('hidden');
+    bringToFront(textEditWindow);
+});
+
+textEditWindow.addEventListener('click', (e) => {
     bringToFront(textEditWindow);
 });
   
@@ -122,6 +149,10 @@ explorerIcon.addEventListener('click', () => {
     bringToFront(explorerWindow);
 });
 
+explorerWindow.addEventListener('click', (e) => {
+    bringToFront(explorerWindow);
+});
+
 explorerCloseBtn.addEventListener('click', () => {
     document.getElementById('explorer-window').classList.add('hidden');
 });
@@ -130,7 +161,6 @@ makeDraggable(explorerWindow, explorerHeader);
 
 
 ///////* Terminal window functionality *//////
-
 const terminalIcon = document.querySelector('[alt="terminal"]');
 const terminalWindow = document.getElementById('terminal-window');
 const terminalHeader = document.getElementById('terminal-header');
@@ -148,8 +178,16 @@ terminalIcon.addEventListener('click', () => {
 
     terminalWindow.classList.remove('hidden');
     bringToFront(terminalWindow);
-}
-);
+});
+
+terminalWindow.addEventListener('click', (e) => {
+    bringToFront(terminalWindow);
+});
+
+makeDraggable(terminalWindow, terminalHeader);
+terminalCloseBtn.addEventListener('click', () => {
+    document.getElementById('terminal-window').classList.add('hidden');
+});
 
 //// spotify
 const musicIcon = document.querySelector('[alt="music"]');
@@ -157,3 +195,36 @@ const musicIcon = document.querySelector('[alt="music"]');
 function openSpotify() {
     window.open('https://open.spotify.com/user/sanjana.adiga');
 }
+
+//// Resume document 
+const resumeIcon = document.getElementById('resume-icon');
+
+resumeIcon.addEventListener('dblclick', () => {
+    window.open('assets/docs/resume.pdf');
+});
+
+/////* Contact Me */////
+const contactIcon = document.querySelector('[alt="address-book"]');
+const contactWindow = document.getElementById('contact-window');
+const contactHeader = document.getElementById('contact-header');
+const contactCloseBtn = contactWindow.querySelector('.btn.red');
+contactIcon.addEventListener('click', () => {
+    const isOpen = !contactWindow.classList.contains('hidden');
+    // If it's open, bring it to the front
+    if (isOpen) {
+        bringToFront(contactWindow);
+        return;
+    }
+    // If it's not open, randomize its position and show it
+    randomizePosition(contactWindow);
+
+    contactWindow.classList.remove('hidden');
+    bringToFront(contactWindow);
+});
+contactWindow.addEventListener('click', (e) => {
+    bringToFront(contactWindow);
+});
+contactCloseBtn.addEventListener('click', () => {
+    document.getElementById('contact-window').classList.add('hidden');
+});
+makeDraggable(contactWindow, contactHeader);

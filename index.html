@@ -14,12 +14,19 @@
         <div class="menu-left">
             <span class="menu-app-name" id="active-app-name">Finder</span>
             <span class="menu-item">File</span>
+            <span class="menu-item">Edit</span>
+            <span class="menu-item">View</span>
+            <span class="menu-item">Go</span>
+            <span class="menu-item">Help</span>
+
+
         </div>
         <div class="menu-right">
             <span id="current-time"></span>
         </div>
     </div>
 
+    <!-- These are all the app windows and desktop items -->
     <div class="desktop">
         <!-- Explorer Window (welcome -> will be replaced by quicktime)-->
         <div id="explorer-window" class="app-window hidden">
@@ -47,7 +54,19 @@
               <button id="go">Go</button>
             </div>
             <div class="explorer-content">
-                <h1>Hi, I'm Sanjana</h1>
+                
+                    <p><pre>                                                                                                                     
+                        ,,          ,,               gp                                                   ,,                               
+                      `7MM          db         `7MMF'\/                                                   db                               
+                        MM                       MM  `'                                                                                    
+                        MMpMMMb.  `7MM           MM    `7MMpMMMb.pMMMb.      ,pP"Ybd  ,6"Yb.  `7MMpMMMb.`7MM  ,6"Yb.  `7MMpMMMb.   ,6"Yb.  
+                        MM    MM    MM           MM      MM    MM    MM      8I   `" 8)   MM    MM    MM  MM 8)   MM    MM    MM  8)   MM  
+                        MM    MM    MM           MM      MM    MM    MM      `YMMMa.  ,pm9MM    MM    MM  MM  ,pm9MM    MM    MM   ,pm9MM  
+                        MM    MM    MM  ,,       MM      MM    MM    MM      L.   I8 8M   MM    MM    MM  MM 8M   MM    MM    MM  8M   MM  
+                      .JMML  JMML..JMML.dg     .JMML.  .JMML  JMML  JMML.    M9mmmP' `Moo9^Yo..JMML  JMML.MM `Moo9^Yo..JMML  JMML.`Moo9^Yo.
+                                        ,j                                                             QO MP                               
+                                       ,'                                                              `bmP                                
+                    </pre></p>
                 <h3>Welcome to my page</h3>
                 <p>I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
             </div>
@@ -77,12 +96,104 @@
                 </p>
             </div>
         </div>
+         <!-- Terminal Window () -->
+         <div id="terminal-window" class="app-window hidden">
+            <div class="app-header" id="terminal-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <div class="app-title">Terminal -- ttyp1</div>
+            </div>
+            <div class="app-content shutdown">
+                <p>Last Login: Thu Apr 10 06:41:19 on console</p>
+                <p>Welcome to Darwin!</p>
+                <p>[sanjanas-macbook:~] sanjana% shutdown.exe init</p>
+                <p>shutdown: No such process</p>
+                <p>[sanjanas-macbook:~] sanjana% sudo shutdown -h now</p>
+                <p>shutdown: Thanks for visiting!</p>                
+            </div>
+            <div class="app-content resume">
+                <p>Last Login: Thu Apr 10 06:41:19 on console</p>
+                <p>Welcome to Darwin!</p>
+                <p>[sanjanas-macbook:~] sanjana% cat myresume.txt</p>
+                <p>Hi, I'm Sanjana! I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
+                <p>I'm looking for a summer internship in 2025. Please contact me if you have any opportunities!</p>
+            </div>
+        </div>
+        <!-- About Window (on startup) -->
+        <div id="about-window" class="app-window ">
+            <div class="app-header" id="about-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <div class="app-title">About this Mac</div>
+            </div>
+            <div class="app-content">
+                <img src="assets/converted-icons/x.png" alt="x" class="about-icon">
+                <h1 class="serif">Mac OS X</h1>
+                <small>Version 10.15.7</small>
+                <p>Built with: Vanilla JS/CSS/HTML</p>
+                <p>Memory: 8 GB 1600 MHz DDR3</p>
+                <p>Graphics: Intel HD Graphics 6000 1536 MB</p>
+                <p>Storage: 256 GB SSD</p>
+                <small>Sanjana Adiga © 2025</small>
+            </div>
+        </div>
+        <!-- Resume Icon (on desktop) -->
+        <div id="resume-icon" class="desktop-icon">
+            <img src="assets/converted-icons/document.png" alt="resume" >
+            <div>Resume.pdf</div>
+        </div>    
+        <!-- Contact Me -->
+        <div id="contact-window" class="app-window hidden">
+            <div class="app-header" id="contact-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <div class="app-title">Address Book</div>
+            </div>
+            <div class="app-content contact-layout">
+                <div class="contact-sidebar">
+                    <div class="contact-section-title">Group</div>
+                    <div class="contact-group">📁 All Contacts</div>
+            
+                    <div class="contact-section-title">Name</div>
+                    <div class="contact-name selected">🧾 Sanjana Adiga</div>
+                </div>
+            
+                <div class="contact-detail">
+                    <div class="contact-header-bar">
+                        <span class="contact-name-title">Sanjana Adiga</span>
+                        <input class="contact-search" type="text" placeholder="Search">
+                    </div>
+            
+                    <p><b>Email</b> <a href="mailto:adigasanjana@gmail.com">adigasanjana@gmail.com</a></p>
+                    <p><b>LinkedIn</b> <a href="https://www.linkedin.com/in/sanjana-adiga/" target="_blank">linkedin.com/in/sanjana-adiga</a></p>
+                    <p><b>GitHub</b> <a href="https://www.github.com/sanj-adiga" target="_blank">github.com/sanj-adiga</a></p>
+                    <p><b>Letterboxd</b> <a href="https://letterboxd.com/s4njana/" target="_blank">letterboxd.com/s4njana</a></p>
+                    <p><b>Spotify</b> <a href="https://www.open.spotify.com/user/sanjana.adiga" target="_blank">spotify.com/user/sanjana.adiga</a></p>
+            
+                    <div class="contact-footer">
+                        <span>1 card</span>
+                        <button>Edit</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+               
+
+
+        
     </div>
       
-    <div class="desktop-icon">
-        <img src="assets/converted-icons/do" alt="">
-
-    </div>
+   
     <!-- Dock Section -->
     <div class="dock">
         <div class="dock-icon-wrapper">

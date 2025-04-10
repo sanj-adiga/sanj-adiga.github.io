@@ -141,7 +141,7 @@ body {
   /* App window styling */
   .app-window {
       position: fixed;
-      top: 20%;
+      top: 40px;
       min-width: 300px;
       min-height: 200px;
       max-width: 90vw;
@@ -153,7 +153,7 @@ body {
       z-index: 200;
       font-family: sans-serif;
       border: 1px solid #ccc;
-      overflow: hidden; /* Prevent scrollbars outside the window */
+      overflow: auto; /* 'hidden' Prevent scrollbars outside the window */
   }
   
   .app-header {
@@ -250,7 +250,14 @@ body {
   display: flex;
   gap: 6px;
   padding: 6px;
-  background: linear-gradient(to bottom, #f2f2f2, #ccc);
+  /* background: linear-gradient(to bottom, #f2f2f2, #ccc); */
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #f6f6f6,
+      #f6f6f6 3px,
+      #e6e6e6 3px,
+      #e6e6e6 4px
+  );
   border-bottom: 1px solid #aaa;
   justify-content: center;
 }
@@ -268,13 +275,15 @@ body {
   display: flex;
   align-items: center;
   padding: 6px;
-  background: #f8f8f8;
+  background: #39a4a8;
+  background: radial-gradient(#a6f8fa, #23979d);
   border-bottom: 1px solid #aaa;
 }
 
 .explorer-address-bar label {
   margin-right: 6px;
   font-size: 12px;
+  color: #fff;
 }
 
 .explorer-address-bar input {
@@ -287,9 +296,9 @@ body {
 .explorer-address-bar button {
   padding: 4px 8px;
   font-size: 12px;
-  background: #dcdcdc;
-  border: 1px solid #888;
+  background: none;
   cursor: pointer;
+  color: #fff;
 }
 
 .explorer-content {
@@ -298,4 +307,185 @@ body {
   background: white;
   height: calc(100% - 110px); /* Adjust for header + toolbar + address bar */
   overflow-y: auto;
+}
+
+/* Startup About Window */
+/* About Window Styling */
+#about-window {
+  width: 280px;
+  height: auto;
+  background: #f6f6f6;
+  border-radius: 12px;
+  border: 1px solid #888;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #f6f6f6,
+      #f6f6f6 3px,
+      #e6e6e6 3px,
+      #e6e6e6 4px
+  );
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+#about-window .app-content .serif{
+  font-family: serif;
+  font-size: 32px;
+}
+
+#about-window .app-header {
+  justify-content: center;
+  font-size: 13px;
+  padding: 4px;
+  background: linear-gradient(to bottom, #eeeeee, #cccccc);
+  border-bottom: 1px solid #aaa;
+}
+
+.about-icon {
+  width: 100px;
+  margin: 15px auto 10px;
+  display: block;
+}
+
+#about-window h1 {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: normal;
+  color: #222;
+}
+
+#about-window p {
+  font-size: 13px;
+  margin: 2px 0;
+  color: #333;
+}
+
+#about-window small {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #666;
+}
+
+.desktop-icon {
+  position: fixed;
+  right: 20px; /* distance from the right edge of the screen */
+  top: 50%;    /* vertically center */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  color: #f6f6f6;
+  cursor: default;
+  z-index: 10;
+}
+
+.desktop-icon img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+  user-select: none;
+  pointer-events: none; /* prevent dragging */
+}
+
+
+/* Address Book Styling (contact me) */
+#contact-window {
+  width: 480px;
+  height: 320px;
+}
+.contact-layout {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  font-size: 13px;
+}
+
+.contact-sidebar {
+  width: 140px;
+  background: #f4f4f4;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #f6f6f6,
+      #f6f6f6 3px,
+      #e6e6e6 3px,
+      #e6e6e6 4px
+  );
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-section-title {
+  font-weight: bold;
+  font-size: 11px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.contact-group,
+.contact-name {
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-name.selected {
+  background-color: #cce0ff;
+  font-weight: bold;
+}
+
+.contact-detail {
+  flex: 1;
+  padding: 10px 14px;
+  overflow-y: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-name-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contact-search {
+  border: 1px solid #ccc;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 120px;
+}
+
+.contact-detail p {
+  margin: 5px 0;
+  font-size: 11px;
+}
+
+.contact-detail p > b {
+  color:#9d9d9d ;
+}
+
+.contact-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-size: 11px;
+  color: #666;
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
 }
