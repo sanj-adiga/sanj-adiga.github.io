@@ -9,30 +9,104 @@
 </head>
 <body>
 
-    <div class="dock">
+    <!-- Menu Bar Section -->
+    <div class="menu-bar">
+        <div class="menu-left">
+            <span class="menu-app-name" id="active-app-name">Finder</span>
+            <span class="menu-item">File</span>
+        </div>
+        <div class="menu-right">
+            <span id="current-time"></span>
+        </div>
+    </div>
 
+    <div class="desktop">
+        <!-- Explorer Window (welcome -> will be replaced by quicktime)-->
+        <div id="explorer-window" class="app-window hidden">
+            <div class="app-header" id="explorer-header">
+              <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+              </div>
+              <div class="app-title">Microsoft Internet Explorer</div>
+            </div>
+            <div class="explorer-toolbar">
+              <button>Back</button>
+              <button>Forward</button>
+              <button>Stop</button>
+              <button>Refresh</button>
+              <button>Home</button>
+              <button>AutoFill</button>
+              <button>Print</button>
+              <button>Mail</button>
+            </div>
+            <div class="explorer-address-bar">
+              <label for="address">Address:</label>
+              <input type="text" id="address" placeholder="https://www.welcome.html" readonly/>
+              <button id="go">Go</button>
+            </div>
+            <div class="explorer-content">
+                <h1>Hi, I'm Sanjana</h1>
+                <h3>Welcome to my page</h3>
+                <p>I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
+            </div>
+        </div>
+
+        <!-- TextEdit Window (projects) -->
+        <div id="textedit-window" class="app-window hidden">
+            <div class="app-header" id="textedit-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <div class="app-title">Projects.rtf <span class="grey-text">- Saved</span></div>
+            </div>
+            <div class="app-content">
+                <p><b>Projects</b><br><br>
+                1. Astrolytics <br>
+                Data Science <br>
+                2. Autonomous Vehicle Lane Detection <br>
+                ML/Transfer Learning <br>
+                3. WEC Game <br>
+                4. Computer Graphics</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br><br>
+                </p>
+            </div>
+        </div>
+    </div>
+      
+    <div class="desktop-icon">
+        <img src="assets/converted-icons/do" alt="">
+
+    </div>
+    <!-- Dock Section -->
+    <div class="dock">
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/finder.png" alt="Finder" class="dock-icon">
+            <img src="assets/converted-icons/finder.png" alt="finder" class="dock-icon">
             <div class="dock-tooltip">Finder</div>
         </div>
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/readme.png" alt="readme" class="dock-icon">
-            <div class="dock-tooltip">ReadMe</div>
+            <div class="dock-tooltip">Welcome</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/browser.png" alt="Browser" class="dock-icon">
-            <div class="dock-tooltip">Browser</div>
+            <img src="assets/converted-icons/explorer.png" alt="explorer" class="dock-icon">
+            <div class="dock-tooltip">Internet Explorer</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/email.png" alt="Email" class="dock-icon">
-            <div class="dock-tooltip">Email</div>
+            <img src="assets/converted-icons/address-book.webp" alt="address-book" class="dock-icon">
+            <div class="dock-tooltip">Contact Me</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/cd.png" alt="Music" class="dock-icon">
-            <div class="dock-tooltip">Music</div>
+            <img src="assets/converted-icons/cd.png" alt="music" class="dock-icon" onclick="openSpotify()">
+            <div class="dock-tooltip">Spotify</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/photos.png" alt="Photos" class="dock-icon">
+            <img src="assets/converted-icons/photos.png" alt="photos" class="dock-icon">
             <div class="dock-tooltip">Photos</div>
         </div>
         <div class="dock-icon-wrapper">
@@ -40,21 +114,22 @@
             <div class="dock-tooltip">TextEdit</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/terminal.png" alt="Terminal" class="dock-icon">
+            <img src="assets/converted-icons/terminal.png" alt="terminal" class="dock-icon">
             <div class="dock-tooltip">Terminal</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/quicktime.png" alt="Quicktime" class="dock-icon">
+            <img src="assets/converted-icons/quicktime.png" alt="quicktime" class="dock-icon">
             <div class="dock-tooltip">Quicktime Player</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/trash-empty.png" alt="trash-empty" class="dock-icon trash">
+            <img src="assets/converted-icons/stickies.png" alt="stickies" class="dock-icon">
+            <div class="dock-tooltip">Stickies</div>
+        </div>
+        <div class="dock-icon-wrapper">
+            <img src="assets/converted-icons/trash-full.webp" alt="trash-empty" class="dock-icon trash">
             <div class="dock-tooltip">Trash</div>
         </div>
-
-
-        <img src="assets/converted-icons/trash-full.png" alt="trash-full" class="dock-icon trash">
-        <!-- Add more icons as needed -->
+        <!-- <img src="assets/converted-icons/trash-full.png" alt="trash-full" class="dock-icon trash"> -->
       </div>
 
     

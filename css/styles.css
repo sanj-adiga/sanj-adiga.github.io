@@ -8,6 +8,47 @@ body {
 
 
 }
+/* Menu Bar Styling */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* width: 100%; */
+  height: 24px;
+  background: linear-gradient(to bottom, #f6f6f6, #e0e0e0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px solid #aaa;
+  z-index: 999;
+}
+
+.menu-left, .menu-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.menu-app-name {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.menu-item {
+  cursor: default;
+  white-space: nowrap;
+
+}
+#current-time {
+  min-width: 48px;
+  text-align: right;
+  white-space: nowrap;
+}
 
 /* Dock styling */
 .dock {
@@ -45,12 +86,13 @@ body {
     align-items: center;
   }
   
+  /* Little tooltip header for each icon */
   .dock-tooltip {
     position: absolute;
     bottom: 100%; /* Show above the icon */
     margin-bottom: 10px;
-    background-color: #333;
-    color: white;
+    background-color: #333333d8;
+    color: rgb(201, 199, 199);
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 13px;
@@ -77,3 +119,183 @@ body {
     transform: translateY(0);
   }
   
+  /* Bounce when Dock icon is in active state */
+  @keyframes bounce {
+    0%   { transform: scale(1) translateY(0); }
+    25%  { transform: scale(1.1) translateY(-10px); }
+    50%  { transform: scale(0.95) translateY(0); }
+    100% { transform: scale(1) translateY(0); }
+  }
+  
+  .bounce {
+    animation: bounce 1.5s ease;
+  }
+
+  .active {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #000000;
+  }
+  
+  /* App window styling */
+  .app-window {
+      position: fixed;
+      top: 20%;
+      min-width: 300px;
+      min-height: 200px;
+      max-width: 90vw;
+      max-height: 80vh;
+      resize: both;
+      background: #f0f0f0;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 200;
+      font-family: sans-serif;
+      border: 1px solid #ccc;
+      overflow: hidden; /* Prevent scrollbars outside the window */
+  }
+  
+  .app-header {
+    background: linear-gradient(to bottom, #e3e3e3, #d0d0d0);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .app-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .grey-text {
+    font-size: 12px;
+    color: #888;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  
+  /* Window: Close, minimize, maximize buttons */
+  .buttons {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    display: flex;
+    gap: 7px;
+  }
+
+  .btn {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.6);
+    justify-items: left;
+    cursor: pointer;
+  }
+
+  /* Individual colors */
+  .red {
+    background-color: #ff5f56;
+    border-color: rgb(205, 38, 38);
+  }
+  .yellow {
+    background-color: #ffbd2e;
+    border-color: #b08c16;
+  }
+  .green {
+    background-color: #27c93f;
+    border-color: #178322;
+  }
+
+  /* hover effect */
+  .btn:hover {
+    filter: brightness(0.95);
+  }
+
+  .app-content {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    height: calc(100% - 40px); /* Adjust for header height */
+    overflow-y: scroll;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Scrollbar styling */
+  .app-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .app-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .app-content::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+  }
+  
+
+/* Internet Explorer Window Styling*/
+.explorer-toolbar {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: linear-gradient(to bottom, #f2f2f2, #ccc);
+  border-bottom: 1px solid #aaa;
+  justify-content: center;
+}
+
+.explorer-toolbar button {
+  background: #e0e0e0;
+  border: 1px solid #888;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.explorer-address-bar {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #aaa;
+}
+
+.explorer-address-bar label {
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.explorer-address-bar input {
+  flex-grow: 1;
+  padding: 4px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.explorer-address-bar button {
+  padding: 4px 8px;
+  font-size: 12px;
+  background: #dcdcdc;
+  border: 1px solid #888;
+  cursor: pointer;
+}
+
+.explorer-content {
+  padding: 10px;
+  font-size: 13px;
+  background: white;
+  height: calc(100% - 110px); /* Adjust for header + toolbar + address bar */
+  overflow-y: auto;
+}
