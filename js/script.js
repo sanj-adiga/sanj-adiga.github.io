@@ -89,6 +89,93 @@ function makeDraggable(windowEl, headerEl) {
     });
   }
 
+///////* Menu Bar Dropdown functionality *//////
+const logoBtn = document.getElementById('logo');
+const dropdown = document.getElementById('apple-dropdown');
+const shutdownOption = document.getElementById('shutdown');
+
+logoBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('hidden');
+});
+
+// Close dropdown on outside click
+document.addEventListener('click', () => {
+    dropdown.classList.add('hidden');
+});
+
+// Shutdown option triggers terminal window with typewriter effect
+const shutdownWindow = document.getElementById('shutdown-window');
+const shutdownContainer = document.getElementById('shutdown-content');
+const shutdownHeader = document.getElementById('shutdown-header');
+const shutdownCloseBtn = shutdownWindow.querySelector('.btn.red');
+ // define the typewriter effect function
+function typewriterEffect(containerId, lines, speed = 30, onComplete = null) {
+    const container = document.getElementById(containerId);
+
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeNextChar() {
+        if (lineIndex >= lines.length) {
+            if (onComplete) onComplete();
+            return;
+        }
+
+        if (charIndex === 0) {
+            const p = document.createElement('p');
+            container.appendChild(p);
+        }
+
+        const currentLine = container.children[container.children.length - 1];
+        currentLine.textContent += lines[lineIndex][charIndex];
+        charIndex++;
+
+        if (charIndex < lines[lineIndex].length) {
+            setTimeout(typeNextChar, speed);
+        } else {
+            charIndex = 0;
+            lineIndex++;
+            setTimeout(typeNextChar, speed * 4);
+        }
+    }
+
+    typeNextChar();
+}
+
+shutdownOption.addEventListener('click', () => {
+    dropdown.classList.add('hidden');
+
+    // Show window
+    shutdownWindow.classList.remove('hidden');
+    bringToFront(shutdownWindow);
+    randomizePosition(shutdownWindow);
+    makeDraggable(shutdownWindow, shutdownHeader);
+
+    // Reset terminal text with static lines
+    shutdownContainer.innerHTML = `
+        <p>Last Login: Thu Apr 10 06:41:19 on console</p>
+        <p>Welcome to Darwin!</p>
+    `;
+
+    const dynamicLines = [
+        "[sanjanas-macbook:~] sanjana% shutdown.exe init",
+        "shutdown: No such process",
+        "[sanjanas-macbook:~] sanjana% sudo shutdown -h now",
+        "shutdown: Thanks for visiting!"
+    ];
+
+    typewriterEffect('shutdown-content', dynamicLines, 25, () => {
+        const finalPrompt = document.createElement('p');
+        finalPrompt.textContent = "[sanjanas-macbook:~] sanjana% ";
+        shutdownContainer.appendChild(finalPrompt);
+    });
+});
+shutdownCloseBtn.addEventListener('click', () => {
+    document.getElementById('shutdown-window').classList.add('hidden');
+    shutdownContainer.innerHTML = "";
+});
+
 ///////* About window functionality *//////
 const aboutWindow = document.getElementById('about-window')
 const aboutHeader = document.getElementById('about-header')
@@ -166,23 +253,23 @@ const terminalWindow = document.getElementById('terminal-window');
 const terminalHeader = document.getElementById('terminal-header');
 const terminalCloseBtn = terminalWindow.querySelector('.btn.red');
 
-terminalIcon.addEventListener('click', () => {
-    const isOpen = !terminalWindow.classList.contains('hidden');
-    // If it's open, bring it to the front
-    if (isOpen) {
-        bringToFront(terminalWindow);
-        return;
-    }
-    // If it's not open, randomize its position and show it
-    randomizePosition(terminalWindow);
+// terminalIcon.addEventListener('click', () => {
+//     const isOpen = !terminalWindow.classList.contains('hidden');
+//     // If it's open, bring it to the front
+//     if (isOpen) {
+//         bringToFront(terminalWindow);
+//         return;
+//     }
+//     // If it's not open, randomize its position and show it
+//     randomizePosition(terminalWindow);
 
-    terminalWindow.classList.remove('hidden');
-    bringToFront(terminalWindow);
-});
+//     terminalWindow.classList.remove('hidden');
+//     bringToFront(terminalWindow);
+// });
 
-terminalWindow.addEventListener('click', (e) => {
-    bringToFront(terminalWindow);
-});
+// terminalWindow.addEventListener('click', (e) => {
+//     bringToFront(terminalWindow);
+// });
 
 makeDraggable(terminalWindow, terminalHeader);
 terminalCloseBtn.addEventListener('click', () => {

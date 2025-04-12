@@ -4,9 +4,13 @@ head {
 
 body {
     background-image: url('../assets/wallpaper.jpg');
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: 'Lucida Grande', 'SF Pro Display', sans-serif;
 
 
+}
+
+p {
+    font-size: 12px;
 }
 /* Menu Bar Styling */
 .menu-bar {
@@ -17,6 +21,13 @@ body {
   /* width: 100%; */
   height: 24px;
   background: linear-gradient(to bottom, #f6f6f6, #e0e0e0);
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #f6f6f6,
+      #f6f6f6 3px,
+      #e6e6e6 3px,
+      #e6e6e6 4px
+  );
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,11 +55,75 @@ body {
   white-space: nowrap;
 
 }
+.menu-item > img {
+  height: 14px;
+  width: 12px;
+}
 #current-time {
   min-width: 48px;
   text-align: right;
   white-space: nowrap;
 }
+
+/* Apple Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #f2f2f2;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #f6f6f6,
+      #f6f6f6 3px,
+      #e6e6e6 3px,
+      #e6e6e6 4px
+  );
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+  font-size: 13px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+#restart, #sleep {
+  color: #aaa;
+}
+
+#restart:hover, #sleep:hover {
+  cursor: not-allowed;
+}
+
+#shutdown:hover {
+  background: linear-gradient(to bottom, #2d67b7, #649cd4);
+  color: #fff;
+
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Shutdown Terminal Window */
+#shutdown-content {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#shutdown-content p:last-child::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
 
 /* Dock styling */
 .dock {
@@ -151,9 +226,10 @@ body {
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       z-index: 200;
-      font-family: sans-serif;
       border: 1px solid #ccc;
       overflow: auto; /* 'hidden' Prevent scrollbars outside the window */
+      display: flex;
+      flex-direction: column;
   }
   
   .app-header {
@@ -309,8 +385,7 @@ body {
   overflow-y: auto;
 }
 
-/* Startup About Window */
-/* About Window Styling */
+/* Startup About Window Styling */
 #about-window {
   width: 280px;
   height: auto;
@@ -343,20 +418,20 @@ body {
 }
 
 .about-icon {
-  width: 100px;
+  width: 80px;
   margin: 15px auto 10px;
   display: block;
 }
 
 #about-window h1 {
-  font-size: 18px;
+  font-size: 14px;
   margin: 5px 0;
   font-weight: normal;
   color: #222;
 }
 
 #about-window p {
-  font-size: 13px;
+  font-size: 12px;
   margin: 2px 0;
   color: #333;
 }
@@ -368,11 +443,20 @@ body {
   color: #666;
 }
 
-.desktop-icon {
+.desktop-icon-column {
   position: fixed;
-  right: 20px; /* distance from the right edge of the screen */
-  top: 50%;    /* vertically center */
+  right: 20px;
+  top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  z-index: 10;
+}
+
+.desktop-icon {
+  position: static;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -381,7 +465,10 @@ body {
   color: #f6f6f6;
   cursor: default;
   z-index: 10;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+
 
 .desktop-icon img {
   width: 50px;
@@ -396,12 +483,22 @@ body {
 #contact-window {
   width: 480px;
   height: 320px;
+  resize: none !important;
+
 }
 .contact-layout {
   display: flex;
   height: 100%;
   padding: 0;
   font-size: 13px;
+}
+
+#contact-window .app-header {
+  justify-content: center;
+  font-size: 13px;
+  padding: 4px;
+  background: linear-gradient(to bottom, #eeeeee, #cccccc);
+  border-bottom: 1px solid #aaa;
 }
 
 .contact-sidebar {
@@ -488,4 +585,25 @@ body {
   color: #666;
   border-top: 1px solid #ddd;
   padding-top: 5px;
+}
+
+
+
+/* -------------------------------------------------------------------------------- */
+/* coming soon.... */
+/* TEMPORARY: App Icon Toggles (until fixed) */
+img[alt="photos"] {
+  cursor: not-allowed;
+}
+img[alt="quicktime"] {
+  cursor: not-allowed;
+}
+img[alt="terminal"] {
+  cursor: not-allowed;
+}
+img[alt="photoshop"] {
+  cursor: not-allowed;
+}
+img[alt="trash-full"] {
+  cursor: not-allowed;
 }

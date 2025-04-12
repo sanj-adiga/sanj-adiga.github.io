@@ -12,6 +12,16 @@
     <!-- Menu Bar Section -->
     <div class="menu-bar">
         <div class="menu-left">
+            <span class="menu-item" id="logo">
+                <img src="assets/converted-icons/apple.png" alt="logo">
+                <div class="dropdown-menu hidden" id="apple-dropdown">
+                    <div class="dropdown-item" id="about">About This Mac</div>
+                    <div class="dropdown-item" id="restart">Restart</div>
+                    <div class="dropdown-item" id="sleep">Sleep</div>
+                    <div class="dropdown-item" id="shutdown">Shut Down...</div>
+                </div>
+            </span>
+
             <span class="menu-app-name" id="active-app-name">Finder</span>
             <span class="menu-item">File</span>
             <span class="menu-item">Edit</span>
@@ -68,6 +78,11 @@
                                        ,'                                                              `bmP                                
                     </pre></p>
                 <h3>Welcome to my page</h3>
+                <p>INSPO: As a Design Engineer at Microsoft, I'm part of the team that brings Image Creator to life.
+
+                    My introduction to technology came unexpectedly during my junior year of college. Despite a late start, I embraced the learning curve and graduated from UNC-Chapel Hill with a degree in Computer Science. This led me to an exciting opportunity to start my career at Microsoft.
+                    
+                    I am deeply interested in design, UI/UX research, accessibility, data and machine learning interfaces.</p>
                 <p>I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
             </div>
         </div>
@@ -96,6 +111,7 @@
                 </p>
             </div>
         </div>
+
          <!-- Terminal Window () -->
          <div id="terminal-window" class="app-window hidden">
             <div class="app-header" id="terminal-header">
@@ -106,22 +122,15 @@
             </div>
             <div class="app-title">Terminal -- ttyp1</div>
             </div>
-            <div class="app-content shutdown">
-                <p>Last Login: Thu Apr 10 06:41:19 on console</p>
-                <p>Welcome to Darwin!</p>
-                <p>[sanjanas-macbook:~] sanjana% shutdown.exe init</p>
-                <p>shutdown: No such process</p>
-                <p>[sanjanas-macbook:~] sanjana% sudo shutdown -h now</p>
-                <p>shutdown: Thanks for visiting!</p>                
-            </div>
-            <div class="app-content resume">
+            <div class="app-content mr-robot">
                 <p>Last Login: Thu Apr 10 06:41:19 on console</p>
                 <p>Welcome to Darwin!</p>
                 <p>[sanjanas-macbook:~] sanjana% cat myresume.txt</p>
                 <p>Hi, I'm Sanjana! I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
-                <p>I'm looking for a summer internship in 2025. Please contact me if you have any opportunities!</p>
+                <p>I'm based in London, Ontario and am looking for a fulltime position for September 2025. Please contact me if you have any opportunities!</p>
             </div>
         </div>
+
         <!-- About Window (on startup) -->
         <div id="about-window" class="app-window ">
             <div class="app-header" id="about-header">
@@ -140,14 +149,44 @@
                 <p>Memory: 8 GB 1600 MHz DDR3</p>
                 <p>Graphics: Intel HD Graphics 6000 1536 MB</p>
                 <p>Storage: 256 GB SSD</p>
+                <p>Icon Credits: <a href="https://freeware.iconfactory.com/preview/woa1">Dave Brasgalla</a></p>
                 <small>Sanjana Adiga © 2025</small>
             </div>
         </div>
-        <!-- Resume Icon (on desktop) -->
-        <div id="resume-icon" class="desktop-icon">
-            <img src="assets/converted-icons/document.png" alt="resume" >
-            <div>Resume.pdf</div>
-        </div>    
+        <!-- Shutdown Popup-->
+        <div id="shutdown-window" class="app-window hidden">
+            <div class="app-header" id="shutdown-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <div class="app-title">Terminal -- ttyp1</div>
+            </div>
+            <div class="app-content" id="shutdown-content">
+                               
+            </div>
+        </div>
+        
+
+        <div class="desktop-icon-column">
+            <!-- Resume Icon (on desktop) -->
+            <div id="resume-icon" class="desktop-icon">
+                <img src="assets/converted-icons/document.png" alt="resume" >
+                <div><b>Resume.pdf</b></div>
+            </div>
+            <!-- LinkedIn Icon (on desktop) -->
+            <div id="linkedin-icon" class="desktop-icon">
+                <img src="assets/converted-icons/linkedin.png" alt="linkedin" >
+                <div><b>LinkedIn.app</b></div>
+            </div> 
+            <!-- GitHub Icon (on desktop) -->
+            <div id="github-icon" class="desktop-icon">
+                <img src="assets/converted-icons/github.webp" alt="github" >
+                <div><b>Github.app</b></div>
+            </div>
+        </div>  
+
         <!-- Contact Me -->
         <div id="contact-window" class="app-window hidden">
             <div class="app-header" id="contact-header">
@@ -177,7 +216,7 @@
                     <p><b>LinkedIn</b> <a href="https://www.linkedin.com/in/sanjana-adiga/" target="_blank">linkedin.com/in/sanjana-adiga</a></p>
                     <p><b>GitHub</b> <a href="https://www.github.com/sanj-adiga" target="_blank">github.com/sanj-adiga</a></p>
                     <p><b>Letterboxd</b> <a href="https://letterboxd.com/s4njana/" target="_blank">letterboxd.com/s4njana</a></p>
-                    <p><b>Spotify</b> <a href="https://www.open.spotify.com/user/sanjana.adiga" target="_blank">spotify.com/user/sanjana.adiga</a></p>
+                    <p><b>Spotify</b> <a href="https://open.spotify.com/user/sanjana.adiga" target="_blank">spotify.com/user/sanjana.adiga</a></p>
             
                     <div class="contact-footer">
                         <span>1 card</span>
@@ -185,8 +224,23 @@
                     </div>
                 </div>
             </div>
-            
         </div>
+
+        <!-- Stickies Windows -->
+        <div id="intro-sticky" class="sticky-note">
+            <div class="app-header" id="stickies-header">
+            <div class="buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+            </div>
+            </div>
+            <div class="app-content">
+                <p>Hi, I'm Sanjana. II'm based in Toronto and am seeking opportunities for Summer 2025. </p>
+            </div>
+        </div>
+        
+
+
                
 
 
@@ -200,10 +254,10 @@
             <img src="assets/converted-icons/finder.png" alt="finder" class="dock-icon">
             <div class="dock-tooltip">Finder</div>
         </div>
-        <div class="dock-icon-wrapper">
+        <!-- <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/readme.png" alt="readme" class="dock-icon">
             <div class="dock-tooltip">Welcome</div>
-        </div>
+        </div> -->
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/explorer.png" alt="explorer" class="dock-icon">
             <div class="dock-tooltip">Internet Explorer</div>
@@ -237,7 +291,7 @@
             <div class="dock-tooltip">Stickies</div>
         </div>
         <div class="dock-icon-wrapper">
-            <img src="assets/converted-icons/trash-full.webp" alt="trash-empty" class="dock-icon trash">
+            <img src="assets/converted-icons/trash-full.webp" alt="trash-full" class="dock-icon trash">
             <div class="dock-tooltip">Trash</div>
         </div>
         <!-- <img src="assets/converted-icons/trash-full.png" alt="trash-full" class="dock-icon trash"> -->
