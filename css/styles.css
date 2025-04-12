@@ -443,6 +443,52 @@ p {
   color: #666;
 }
 
+/* Sticky Notes Styling */
+.sticky-note {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: fixed;
+  font-family: 'Helvetica Neue', 'SF Pro Display', sans-serif;
+}
+.stickies-header {
+  padding: 5px;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+.sticky-note .app-content {
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  padding: 5px;
+}
+#welcome-note {
+  background: #fc9bb7;
+  top: 90px;
+  left: 500px;
+}
+/* #welcome-note .stickies-header {
+  background: #b5546e;
+} */
+#intro-note {
+  background: #ffeb3b;
+  top: 200px;
+  left: 800px;
+  height: 220px;
+  width: 220px;
+}
+/* #intro-note .stickies-header {
+  background: #f8e135;
+} */
+.sticky-note .app-title {
+  display: none;
+}
+
+/* Desktop Icon Styling */
 .desktop-icon-column {
   position: fixed;
   right: 20px;
@@ -454,7 +500,6 @@ p {
   gap: 25px;
   z-index: 10;
 }
-
 .desktop-icon {
   position: static;
   display: flex;
@@ -467,9 +512,6 @@ p {
   z-index: 10;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-
-
-
 .desktop-icon img {
   width: 50px;
   height: 50px;

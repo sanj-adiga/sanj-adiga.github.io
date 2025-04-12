@@ -24,12 +24,14 @@ updateTime(); // initial call
 
 /// * Function to create a new window with a random position */
 function randomizePosition(win) {
-    const padding = 50;
+    const padding = 20; // for right/left spacing
+    const menuBarHeight = 24;
+    const dockHeight = 80; // 60px dock + 20px buffer
     const maxLeft = window.innerWidth - win.offsetWidth - padding;
-    const maxTop = window.innerHeight - win.offsetHeight - padding;
+    const maxTop = window.innerHeight - win.offsetHeight - dockHeight;
 
     const left = Math.floor(Math.random() * maxLeft);
-    const top = Math.floor(Math.random() * maxTop);
+    const top = Math.floor(Math.random() * (maxTop - menuBarHeight)) + menuBarHeight; // below menu bar
 
     win.style.left = `${left}px`;
     win.style.top = `${top}px`;
@@ -183,6 +185,37 @@ makeDraggable(aboutWindow, aboutHeader);
 aboutWindow.addEventListener('click', (e) => {
     bringToFront(aboutWindow);
 });
+
+
+///////* Sticky note functionality *//////
+const stickies = document.querySelectorAll('.sticky-note');
+const stickiesIcon = document.querySelector('[alt="stickies"]');
+const introNote = document.getElementById('intro-note');
+
+document.querySelectorAll('.sticky-note').forEach(note => {
+    const header = note.querySelector('.stickies-header');
+    makeDraggable(note, header);
+});
+
+stickiesIcon.addEventListener('click', () => {
+    stickies.forEach((note) => {
+        // If note is hidden, show and randomize its position
+        if (note.classList.contains('hidden')) {
+            randomizePosition(note);
+            note.classList.remove('hidden');
+        }
+        
+        // Make it draggable
+        const header = note.querySelector('.stickies-header');
+        makeDraggable(note, header);
+        bringToFront(note);
+
+        // Close button functionality
+        const closeBtn = note.querySelector('.btn.close');
+        closeBtn.onclick = () => note.classList.add('hidden');
+    });
+});
+
 
 
 ///////* TextEdit window functionality (projects) *//////
