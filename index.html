@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
 </head>
+
 <body>
 
     <!-- Menu Bar Section -->
@@ -39,110 +41,142 @@
     <!-- These are all the app windows and desktop items -->
     <div class="desktop">
         <!-- Explorer Window (welcome -> will be replaced by quicktime)-->
-        <div id="explorer-window" class="app-window hidden">
+        <div id="explorer-window" class="app-window data-window">
             <div class="app-header" id="explorer-header">
-              <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-              </div>
-              <div class="app-title">Microsoft Internet Explorer</div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">Safari</div>
             </div>
             <div class="explorer-toolbar">
-              <button>Back</button>
-              <button>Forward</button>
-              <button>Stop</button>
-              <button>Refresh</button>
-              <button>Home</button>
-              <button>AutoFill</button>
-              <button>Print</button>
-              <button>Mail</button>
+                <button>Back</button>
+                <button>Forward</button>
+                <button>Stop</button>
+                <button>Refresh</button>
+                <button>Home</button>
+                <button>AutoFill</button>
+                <button>Print</button>
+                <button>Mail</button>
             </div>
             <div class="explorer-address-bar">
-              <label for="address">Address:</label>
-              <input type="text" id="address" placeholder="https://www.welcome.html" readonly/>
-              <button id="go">Go</button>
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="https://www.welcome.html" readonly />
+                <button id="go">Go</button>
             </div>
             <div class="explorer-content">
-                
-                    <p><pre>                                                                                                                     
-                        ,,          ,,               gp                                                   ,,                               
-                      `7MM          db         `7MMF'\/                                                   db                               
-                        MM                       MM  `'                                                                                    
-                        MMpMMMb.  `7MM           MM    `7MMpMMMb.pMMMb.      ,pP"Ybd  ,6"Yb.  `7MMpMMMb.`7MM  ,6"Yb.  `7MMpMMMb.   ,6"Yb.  
-                        MM    MM    MM           MM      MM    MM    MM      8I   `" 8)   MM    MM    MM  MM 8)   MM    MM    MM  8)   MM  
-                        MM    MM    MM           MM      MM    MM    MM      `YMMMa.  ,pm9MM    MM    MM  MM  ,pm9MM    MM    MM   ,pm9MM  
-                        MM    MM    MM  ,,       MM      MM    MM    MM      L.   I8 8M   MM    MM    MM  MM 8M   MM    MM    MM  8M   MM  
-                      .JMML  JMML..JMML.dg     .JMML.  .JMML  JMML  JMML.    M9mmmP' `Moo9^Yo..JMML  JMML.MM `Moo9^Yo..JMML  JMML.`Moo9^Yo.
-                                        ,j                                                             QO MP                               
-                                       ,'                                                              `bmP                                
-                    </pre></p>
-                <h3>Welcome to my page</h3>
-                <p>INSPO: As a Design Engineer at Microsoft, I'm part of the team that brings Image Creator to life.
 
-                    My introduction to technology came unexpectedly during my junior year of college. Despite a late start, I embraced the learning curve and graduated from UNC-Chapel Hill with a degree in Computer Science. This led me to an exciting opportunity to start my career at Microsoft.
-                    
-                    I am deeply interested in design, UI/UX research, accessibility, data and machine learning interfaces.</p>
-                <p>I'm a Software Engineering student at Western University. I am passionate about cybersecurity, machine learning, and computer graphics.</p>
+                <div class="webpage-header">
+                    <img src="assets/image.png" alt="image of me">
+                    <canvas id="ascii-canvas"></canvas>
+
+                    <!-- <p>
+                    <pre id="ascii-art" class="ascii-grid">
+    ,,          ,,               gp                                                   ,,                               
+  `7MM          db         `7MMF'\/                                                   db                               
+    MM                       MM  `'                                                                                    
+    MMpMMMb.  `7MM           MM    `7MMpMMMb.pMMMb.      ,pP"Ybd  ,6"Yb.  `7MMpMMMb.`7MM  ,6"Yb.  `7MMpMMMb.   ,6"Yb.  
+    MM    MM    MM           MM      MM    MM    MM      8I   `" 8)   MM    MM    MM  MM 8)   MM    MM    MM  8)   MM  
+    MM    MM    MM           MM      MM    MM    MM      `YMMMa.  ,pm9MM    MM    MM  MM  ,pm9MM    MM    MM   ,pm9MM  
+    MM    MM    MM  ,,       MM      MM    MM    MM      L.   I8 8M   MM    MM    MM  MM 8M   MM    MM    MM  8M   MM  
+  .JMML  JMML..JMML.dg     .JMML.  .JMML  JMML  JMML.    M9mmmP' `Moo9^Yo..JMML  JMML.MM `Moo9^Yo..JMML  JMML.`Moo9^Yo.
+                    ,j                                                             QO MP                               
+                   ,'                                                              `bmP                                
+                    </pre>
+                    </p> -->
+                </div>
+                <div class="webpage-content">                        
+                      
+                    <h2> I’m studying Software Engineering at Western University and am constantly inspired by how code, design, and
+                        community can shape better futures. </h2><br>
+                    <p>I build things at the intersection of machine learning, visual
+                        storytelling, and people-first design — systems that are secure, expressive, and a little bit
+                        joyful.
+                        Lately, I’ve been building systems that blend machine learning with creative interfaces — the kind
+                        of stuff that blurs the line between tech and art. I care about accessibility, sustainability, and
+                        softness in systems design. </p><br>
+                    <p>I'm curious about a lot:
+                    <ul>
+                        <li>how we use computer graphics to visualize complex systems</li>
+                        <li>how to make cybersecurity more intuitive and accessible</li>
+                        <li>how to use machine learning to create more inclusive and accessible systems</li>
+                        <!-- <li>how fashion and interface design both reflect culture</li> -->
+                        <li>how technology can support people and communities, grounded in long-term sustainability </li>
+                    </ul>
+                    </p><br>
+                    <p>I’m also building up my running distance, rewatching my favorite films with new eyes, and exploring
+                        how sustainability and engineering can align — not just in theory, but in tools we actually use.</p><br>
+                    <p>I get excited about systems that are resilient, expressive, and designed with care. I love working
+                        with kind, curious people — the kind who are down to co-build something weird, tell you about a book
+                        that changed their life, or go on a tangent about a design detail that no one else noticed.</p>
+                    <p>If that’s you, say hi :)</p>
+                </div>
             </div>
         </div>
 
         <!-- TextEdit Window (projects) -->
-        <div id="textedit-window" class="app-window hidden">
+        <div id="textedit-window" class="app-window data-window hidden">
             <div class="app-header" id="textedit-header">
-            <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-            </div>
-            <div class="app-title">Projects.rtf <span class="grey-text">- Saved</span></div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">Projects.rtf <span class="grey-text">- Saved</span></div>
             </div>
             <div class="app-content">
-                <p><b>Projects</b><br><br>
-                1. Astrolytics <br>
-                Data Science <br>
+                <h3><b>Projects</b></h3>
+                <h4>1. Astrolytics </h4><br>
+                <p></p>Data Science python, ml,  <br>
                 2. Autonomous Vehicle Lane Detection <br>
-                ML/Transfer Learning <br>
-                3. WEC Game <br>
-                4. Computer Graphics</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br><br>
+                ML/Transfer Learning python, tf, keras, <br>
+                3. WEC Game python <br>
+                4. Computer Graphics c++</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.<br><br>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.<br><br>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.<br><br>
                 </p>
+                <p>5. WaitLift or RecRadar</p>
+                <p>python because data analytics and </p>
+                <p>6. Hand Mapping thing</p>
+                <p>three.js and </p>
             </div>
         </div>
 
-         <!-- Terminal Window () -->
-         <div id="terminal-window" class="app-window hidden">
+        <!-- Terminal Window () -->
+        <div id="terminal-window" class="app-window data-window hidden">
             <div class="app-header" id="terminal-header">
-            <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-            </div>
-            <div class="app-title">Terminal -- ttyp1</div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">Terminal -- ttyp1</div>
             </div>
             <div class="app-content mr-robot">
                 <p>Last Login: Thu Apr 10 06:41:19 on console</p>
-                <p>Welcome to Darwin!</p>
                 <p>[sanjanas-macbook:~] sanjana% cat myresume.txt</p>
             </div>
         </div>
 
         <!-- About Window (on startup) -->
-        <div id="about-window" class="app-window ">
+        <div id="about-window" class="app-window data-window">
             <div class="app-header" id="about-header">
-            <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-            </div>
-            <div class="app-title">About this Mac</div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">About this Mac</div>
             </div>
             <div class="app-content">
                 <img src="assets/converted-icons/x.png" alt="x" class="about-icon">
                 <h1 class="serif">Mac OS X</h1>
-                <small>Version 10.15.7</small>
+                <small>Version 10.2</small>
                 <p>Built with: Vanilla JS/CSS/HTML</p>
                 <p>Memory: 8 GB 1600 MHz DDR3</p>
                 <p>Graphics: Intel HD Graphics 6000 1536 MB</p>
@@ -151,71 +185,76 @@
                 <small>Sanjana Adiga © 2025</small>
             </div>
         </div>
+
         <!-- Shutdown Popup-->
-        <div id="shutdown-window" class="app-window hidden">
+        <div id="shutdown-window" class="app-window data-window hidden">
             <div class="app-header" id="shutdown-header">
-            <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-            </div>
-            <div class="app-title">Terminal -- ttyp1</div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">Terminal -- ttyp1</div>
             </div>
             <div class="app-content" id="shutdown-content">
-                               
+
             </div>
         </div>
-        
+
 
         <div class="desktop-icon-column">
             <!-- Resume Icon (on desktop) -->
             <div id="resume-icon" class="desktop-icon">
-                <img src="assets/converted-icons/document.png" alt="resume" >
+                <img src="assets/converted-icons/document.png" alt="resume">
                 <div><b>Resume.pdf</b></div>
             </div>
             <!-- LinkedIn Icon (on desktop) -->
             <div id="linkedin-icon" class="desktop-icon">
-                <img src="assets/converted-icons/linkedin.png" alt="linkedin" >
+                <img src="assets/converted-icons/linkedin.png" alt="linkedin">
                 <div><b>LinkedIn.app</b></div>
-            </div> 
+            </div>
             <!-- GitHub Icon (on desktop) -->
             <div id="github-icon" class="desktop-icon">
-                <img src="assets/converted-icons/github.webp" alt="github" >
+                <img src="assets/converted-icons/github.webp" alt="github">
                 <div><b>Github.app</b></div>
             </div>
-        </div>  
+        </div>
 
         <!-- Contact Me -->
-        <div id="contact-window" class="app-window hidden">
+        <div id="contact-window" class="app-window data-window hidden">
             <div class="app-header" id="contact-header">
-            <div class="buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-            </div>
-            <div class="app-title">Address Book</div>
+                <div class="buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="app-title">Address Book</div>
             </div>
             <div class="app-content contact-layout">
                 <div class="contact-sidebar">
                     <div class="contact-section-title">Group</div>
                     <div class="contact-group">📁 All Contacts</div>
-            
+
                     <div class="contact-section-title">Name</div>
                     <div class="contact-name selected">🧾 Sanjana Adiga</div>
                 </div>
-            
+
                 <div class="contact-detail">
                     <div class="contact-header-bar">
                         <span class="contact-name-title">Sanjana Adiga</span>
                         <input class="contact-search" type="text" placeholder="Search">
                     </div>
-            
+
                     <p><b>Email</b> <a href="mailto:adigasanjana@gmail.com">adigasanjana@gmail.com</a></p>
-                    <p><b>LinkedIn</b> <a href="https://www.linkedin.com/in/sanjana-adiga/" target="_blank">linkedin.com/in/sanjana-adiga</a></p>
-                    <p><b>GitHub</b> <a href="https://www.github.com/sanj-adiga" target="_blank">github.com/sanj-adiga</a></p>
-                    <p><b>Letterboxd</b> <a href="https://letterboxd.com/s4njana/" target="_blank">letterboxd.com/s4njana</a></p>
-                    <p><b>Spotify</b> <a href="https://open.spotify.com/user/sanjana.adiga" target="_blank">spotify.com/user/sanjana.adiga</a></p>
-            
+                    <p><b>LinkedIn</b> <a href="https://www.linkedin.com/in/sanjana-adiga/"
+                            target="_blank">linkedin.com/in/sanjana-adiga</a></p>
+                    <p><b>GitHub</b> <a href="https://www.github.com/sanj-adiga"
+                            target="_blank">github.com/sanj-adiga</a></p>
+                    <p><b>Letterboxd</b> <a href="https://letterboxd.com/s4njana/"
+                            target="_blank">letterboxd.com/s4njana</a></p>
+                    <p><b>Spotify</b> <a href="https://open.spotify.com/user/sanjana.adiga"
+                            target="_blank">spotify.com/user/sanjana.adiga</a></p>
+
                     <div class="contact-footer">
                         <span>1 card</span>
                         <button>Edit</button>
@@ -225,40 +264,46 @@
         </div>
 
         <!-- Stickies Windows -->
-        <div class="sticky-note" id="intro-note">
-            <div class="stickies-header" id="intro-header">
-            <div class="buttons">
-                <span class="btn close"></span>
-                <span class="btn minimize"></span>
+        <div class="stickies-container">
+            <div class="sticky-note data-window" id="intro-note">
+                <div class="stickies-header" id="intro-header">
+                    <div class="sticky-buttons">
+                        <span class="btn close">□</span>
+                        <span class="btn minimize">◿</span>
+                    </div>
+                    <div class="app-title">Stickies</div>
+                </div>
+                <div class="app-content">
+                    <p> I'm based in Toronto and am seeking opportunities for Summer 2025. In the fall, I will be based
+                        out of London, Ontario and am seeking full-time opportunities as well! Flexible to work remote.
+                    </p>
+                </div>
             </div>
-            <div class="app-title">Stickies</div>
-            </div>
-            <div class="app-content">
-                <p>Hi, I'm Sanjana! I'm deeply interested in cybersecurity, machine learning applications and computer graphics/design. <br><br>Based in Toronto and am seeking opportunities for Summer 2025. In the fall, I will be based out of London, Ontario and am seeking full-time opportunities as well! Flexible to work remote.</p>
+            <div class="sticky-note data-window" id="welcome-note">
+                <div class="stickies-header" id="welcome-header">
+                    <div class="sticky-buttons">
+                        <span class="btn close">□</span>
+                        <span class="btn minimize">◿</span>
+                    </div>
+                    <div class="app-title">Stickies</div>
+                </div>
+                <div class="app-content">
+                    <p><b>Welcome!</b>
+                        <br><br>Explore the apps in the Dock below to learn more :)
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="sticky-note" id="welcome-note" >
-            <div class="stickies-header" id="welcome-header">
-            <div class="buttons">
-                <span class="btn close"></span>
-                <span class="btn minimize"></span>
-            </div>
-            <div class="app-title">Stickies</div>
-            </div>
-            <div class="app-content">
-                <p><b>Welcome!</b> Explore the apps in the Dock below to learn more :)</p>
-            </div>
-        </div>
-        
 
 
-               
 
 
-        
+
+
+
     </div>
-      
-   
+
+
     <!-- Dock Section -->
     <div class="dock">
         <div class="dock-icon-wrapper">
@@ -269,13 +314,17 @@
             <img src="assets/converted-icons/readme.png" alt="readme" class="dock-icon">
             <div class="dock-tooltip">Welcome</div>
         </div> -->
-        <div class="dock-icon-wrapper">
+        <!-- <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/explorer.png" alt="explorer" class="dock-icon">
-            <div class="dock-tooltip">Internet Explorer</div>
+            <div class="dock-tooltip">About</div>
+        </div> -->
+        <div class="dock-icon-wrapper">
+            <img src="assets/converted-icons/safari.png" alt="safari" class="dock-icon">
+            <div class="dock-tooltip">About</div>
         </div>
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/address-book.webp" alt="address-book" class="dock-icon">
-            <div class="dock-tooltip">Contact Me</div>
+            <div class="dock-tooltip">Contact</div>
         </div>
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/cd.png" alt="music" class="dock-icon" onclick="openSpotify()">
@@ -287,7 +336,7 @@
         </div>
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/textedit.png" alt="textedit" class="dock-icon">
-            <div class="dock-tooltip">TextEdit</div>
+            <div class="dock-tooltip">Projects</div>
         </div>
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/terminal.png" alt="terminal" class="dock-icon">
@@ -306,8 +355,9 @@
             <div class="dock-tooltip">Trash</div>
         </div>
         <!-- <img src="assets/converted-icons/trash-full.png" alt="trash-full" class="dock-icon trash"> -->
-      </div>
+    </div>
 
-    
+
 </body>
+
 </html>
