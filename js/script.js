@@ -172,7 +172,7 @@ shutdownOption.addEventListener('click', () => {
         "[sanjanas-macbook:~] sanjana% shutdown.exe init",
         "shutdown: No such process",
         "[sanjanas-macbook:~] sanjana% sudo shutdown -h now",
-        "shutdown: Thanks for visiting!"
+        "shutdown: System shutting down now. Thanks for visiting!"
     ];
 
     typewriterEffect('shutdown-content', dynamicLines, 25, () => {
@@ -312,9 +312,6 @@ M9mmmP' 'Moo9^Yo.JMML  JMML.MM 'Moo9^Yo.JMML  JMML.'Moo9^Yo.
     canvas.style.width = desiredWidth + 'px';
     canvas.style.height = desiredHeight + 'px';
 
-    // canvas.width = cols * fontSize + padding * 2;
-    // canvas.height = rows * fontSize + padding * 2;
-
     // Preprocess each character into a particle
     const particles = [];
     for (let y = 0; y < rows; y++) {
@@ -424,12 +421,12 @@ const contactHeader = document.getElementById('contact-header');
 const contactCloseBtn = contactWindow.querySelector('.btn.red');
 contactIcon.addEventListener('click', () => {
     const isOpen = !contactWindow.classList.contains('hidden');
-    // If it's open, bring it to the front
+    // if open, bring to front
     if (isOpen) {
         bringToFront(contactWindow);
         return;
     }
-    // If it's not open, randomize its position and show it
+    // if not open, randomize position 
     randomizePosition(contactWindow);
 
     contactWindow.classList.remove('hidden');
@@ -443,5 +440,68 @@ contactCloseBtn.addEventListener('click', () => {
 });
 makeDraggable(contactWindow, contactHeader);
 
+///////* Boot Up Loading and Log In *//////
+window.addEventListener("DOMContentLoaded", () => {
+  const grey = document.getElementById("grey-boot");
+  const modal = document.getElementById("modal-boot");
+  const desktop = document.querySelector(".desktop");
+  const dock = document.querySelector(".dock");
+  const fill = document.querySelector(".fill");
+  const statusText = document.getElementById("boot-status");
+  const totalDuration = 6000; 
+
+  const messages = [
+    "Welcome to Macintosh.",
+    "Loading IP Firewall extension",
+    "Starting NetInfo",
+    "Starting Directory Services",
+    "Starting Core Services",
+    "Starting internet services",
+    "Starting timed execution services",
+    "Starting printing services"
+  ];
+  const stepTime = totalDuration / messages.length; 
+  console.log(stepTime);
+  console.log(messages.length);
+
+
+  desktop.style.display = "none";
+  dock.style.display = "none";
+
+  if (!localStorage.getItem("booted")) {
+    // first grey screen
+    setTimeout(() => {
+      grey.classList.add("hidden");
+      modal.classList.remove("hidden");
+
+      // animate progress bar + messages
+      let step = 0;
+      const interval = setInterval(() => {
+        if (step < messages.length) {
+          statusText.textContent = messages[step];
+          fill.style.width = `${(step + 1) * (100 / messages.length)}%`;
+          step++;
+          console.log(stepTime);
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            desktop.style.display = "block";
+            dock.style.display = "flex";
+            localStorage.setItem("booted", "true");
+          }, 800); // small delay after final message
+        }
+      }, stepTime);
+    }, 3000);
+  } else {
+    grey.classList.add("hidden");
+    modal.classList.add("hidden");
+    desktop.style.display = "block";
+    dock.style.display = "flex";
+  }
+});
+
+
 
 console.log("Inspired by MacOS X Jaguar and the Aqua interface era.");
+

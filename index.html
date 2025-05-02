@@ -38,6 +38,41 @@
         </div>
     </div>
 
+    <!-- Boot Up Screen -->
+    <div id="grey-boot" class="boot-stage gray-screen ">
+        <img src="assets/toolbar-icons/logo_grey.png" alt="grey-logo" class="apple-logo">
+        <div class="spinner"><img src="assets/toolbar-icons/loading.gif" alt=""></div>
+    </div>
+
+    <div id="modal-boot" class="boot-stage modal-screen hidden">
+        <div class="modal-box">
+            <img src="assets/toolbar-icons/logo.png" alt="blue-logo" class="apple-logo">
+            <h1 class="mac-title">Mac OS X</h1>
+            <div class="progress-bar"><div class="fill"></div></div>
+            <p id="boot-status">Welcome to Macintosh.</p>
+        </div>
+    </div>
+      
+    
+    <!-- Login Screen -->
+    <div id="login-screen" class="hidden">
+        <div class="login-modal">
+        <img src="assets/toolbar-icons/logo.png" alt="Apple Logo" class="login-apple" />
+        <h1>Mac OS X</h1>
+        <p class="login-sub">Sanjana’s Computer</p>
+    
+        <div class="login-user" id="login-user">
+            <img src="assets/toolbar-icons/tulip.jpg" alt="Sanjana">
+            <span>Sanjana</span>
+        </div>
+    
+        <div class="login-footer">
+            <button disabled class="restart"><img src="assets/restart.png" alt="">Restart</button>
+            <button disabled class="shutdown"><img src="assets/shutdown.png" alt="">Shut Down</button>
+        </div>
+        </div>
+    </div>
+
     <!-- These are all the app windows and desktop items -->
     <div class="desktop">
         <!-- Explorer Window (welcome -> will be replaced by quicktime)-->
@@ -50,25 +85,18 @@
                 </div>
                 <div class="app-title">Safari</div>
             </div>
-            <div class="explorer-toolbar">
-                <button>Back</button>
-                <button>Forward</button>
-                <button>Stop</button>
-                <button>Refresh</button>
-                <button>Home</button>
-                <button>AutoFill</button>
-                <button>Print</button>
-                <button>Mail</button>
-            </div>
             <div class="explorer-address-bar">
-                <label for="address">Address:</label>
+                <button class="left arrow"><img src="assets/toolbar-icons/right-arrow.png" alt="left-arrow"></button>
+                <button class="arrow"><img src="assets/toolbar-icons/right-arrow.png" alt="right-arrow"></button>
+                <button><img src="assets/toolbar-icons/reload.png" alt="reload"></button>
+                <button><img src="assets/toolbar-icons/plus-symbol-button.png" alt="plus-symbol"></button>
                 <input type="text" id="address" placeholder="https://www.welcome.html" readonly />
-                <button id="go">Go</button>
+                <span><img src="assets/toolbar-icons/magnifying-glass.png" alt="magnifying-glass"><input type="text" id="search" placeholder="Google"/></span>
             </div>
             <div class="explorer-content">
 
                 <div class="webpage-header">
-                    <img src="assets/image.png" alt="image of me">
+                    <img src="assets/image.png" alt="profile-image" class="profile-image">
                     <canvas id="ascii-canvas"></canvas>
 
                     <!-- <p>
@@ -105,10 +133,10 @@
                         <li>how technology can support people and communities, grounded in long-term sustainability </li>
                     </ul>
                     </p><br>
-                    <p>I’m also building up my running distance, rewatching my favorite films with new eyes, and exploring
-                        how sustainability and engineering can align — not just in theory, but in tools we actually use.</p><br>
+                    <p>I’m also building up my running distance, watching new and old films, and exploring
+                        how sustainability and engineering can align in the tools we actually use.</p><br>
                     <p>I get excited about systems that are resilient, expressive, and designed with care. I love working
-                        with kind, curious people — the kind who are down to co-build something weird, tell you about a book
+                        with kind, curious people: the kind who are down to co-build something weird, tell you about a book
                         that changed their life, or go on a tangent about a design detail that no one else noticed.</p>
                     <p>If that’s you, say hi :)</p>
                 </div>
@@ -125,26 +153,85 @@
                 </div>
                 <div class="app-title">Projects.rtf <span class="grey-text">- Saved</span></div>
             </div>
+            
             <div class="app-content">
                 <h3><b>Projects</b></h3>
-                <h4>1. Astrolytics </h4><br>
-                <p></p>Data Science python, ml,  <br>
-                2. Autonomous Vehicle Lane Detection <br>
-                ML/Transfer Learning python, tf, keras, <br>
-                3. WEC Game python <br>
-                4. Computer Graphics c++</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.<br><br>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.<br><br>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.<br><br>
-                </p>
-                <p>5. WaitLift or RecRadar</p>
-                <p>python because data analytics and </p>
-                <p>6. Hand Mapping thing</p>
-                <p>three.js and </p>
+                <p>Some applications I've worked on and built.</p>
+            
+                <div class="project-entry">
+                    <h4>Astrolytics</h4>
+                    <p>A data science dashboard for visualizing celestial body trajectories using real-time data.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Matplotlib</span>
+                        <span class="tech-badge">Plotly</span>
+                        
+                    </div>
+                    <p class="year">2024</p>
+                </div>
+            
+                <div class="project-entry">
+                    <h4>Autonomous Vehicle Lane Detection</h4>
+                    <p>A deep learning model using transfer learning to segment and classify lane markings in real-time driving scenarios.</p>
+                    <p class="extra-description">Built a hybrid CV + deep learning system to detect lane boundaries in autonomous driving scenarios. I used Canny/Sobel filters and Hough Transforms for classical edge work, then trained a VGG16-UNet on the TuSimple dataset, reaching 97.72% validation accuracy. My pipeline emphasized clarity: grayscale, ROI masking, brightness normalization — small things that made the model more confident.
+                        What stuck with me: even the most “accurate” models still need to think about generalization. Complex visibility conditions are where machine perception really starts to matter.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Keras</span>
+                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">U-Net</span>
+                        <span class="tech-badge">VGG-16</span>
+                        <span class="tech-badge">Computer Vision</span>
+                        <span class="tech-badge">Image Segmentation</span>
+                        <span class="tech-badge">Edge Detection</span>
+                    </div>
+                    <p class="year">2024</p>
+                </div>
+            
+                <div class="project-entry">
+                    <h4>WEC Game</h4>
+                    <p>A custom game built for Western Engineering Competition featuring logic puzzles and multi-level gameplay.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pygame</span>
+                    </div>
+                    <p class="year">2023</p>
+                </div>
+            
+                <div class="project-entry">
+                    <h4>Computer Graphics Projects</h4>
+                    <p>A collection of OpenGL-based projects including ray tracing, marching cubes, and surface tessellation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">OpenGL</span>
+                        <span class="tech-badge">GLSL</span>
+                    </div>
+                    <p class="year">2023–2024</p>
+                </div>
+                <div class="project-entry">
+                    <h4>Rec Centre Busyness Predictor</h4>
+                    <p>Name ideas: WaitLift, RecRadar</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">OpenGL</span>
+                        <span class="tech-badge">GLSL</span>
+                    </div>
+                    <p class="year">2023–2024</p>
+                </div>
+                <div class="project-entry">
+                    <h4>Computer Vision Hand Mapping</h4>
+                    <p>A collection of OpenGL-based projects including ray tracing, marching cubes, and surface tessellation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">OpenGL</span>
+                        <span class="tech-badge">GLSL</span>
+                    </div>
+                    <p class="year">2023–2024</p>
+                </div>
             </div>
+            
         </div>
 
         <!-- Terminal Window () -->
@@ -274,9 +361,9 @@
                     <div class="app-title">Stickies</div>
                 </div>
                 <div class="app-content">
-                    <p> I'm based in Toronto and am seeking opportunities for Summer 2025. In the fall, I will be based
-                        out of London, Ontario and am seeking full-time opportunities as well! Flexible to work remote.
+                    <p> I'm based in London, Ontario and am seeking full-time opportunities for Fall/Winter 2025!
                     </p>
+                    <p>Flexible to work remote.</p>
                 </div>
             </div>
             <div class="sticky-note data-window" id="welcome-note">
@@ -330,22 +417,22 @@
             <img src="assets/converted-icons/cd.png" alt="music" class="dock-icon" onclick="openSpotify()">
             <div class="dock-tooltip">Spotify</div>
         </div>
-        <div class="dock-icon-wrapper">
+        <!-- <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/photos.png" alt="photos" class="dock-icon">
             <div class="dock-tooltip">Photos</div>
-        </div>
+        </div> -->
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/textedit.png" alt="textedit" class="dock-icon">
             <div class="dock-tooltip">Projects</div>
         </div>
-        <div class="dock-icon-wrapper">
+        <!-- <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/terminal.png" alt="terminal" class="dock-icon">
             <div class="dock-tooltip">Terminal</div>
-        </div>
-        <div class="dock-icon-wrapper">
+        </div> -->
+        <!-- <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/quicktime.png" alt="quicktime" class="dock-icon">
             <div class="dock-tooltip">Quicktime Player</div>
-        </div>
+        </div> -->
         <div class="dock-icon-wrapper">
             <img src="assets/converted-icons/stickies.png" alt="stickies" class="dock-icon">
             <div class="dock-tooltip">Stickies</div>
@@ -356,6 +443,10 @@
         </div>
         <!-- <img src="assets/converted-icons/trash-full.png" alt="trash-full" class="dock-icon trash"> -->
     </div>
+
+    
+  
+  
 
 
 </body>
