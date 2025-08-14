@@ -400,7 +400,7 @@ function openSpotify() {
 //// Resume Desktop Icon 
 const resumeIcon = document.getElementById('resume-icon');
 resumeIcon.addEventListener('dblclick', () => {
-    window.open('assets/docs/resume.pdf');
+    window.open('assets/docs/Resume.pdf');
 });
 
 //// LinkedIn Desktop Icon
